@@ -89,10 +89,26 @@ class DatabaseOperationsTest(unittest.TestCase):
 
     def test_select_all(self):
         add_person(
-            self.db_path, "Plugatyrev", "Vladislav", "Capricorn", "2005-01-12"
+            self.db_path,
+            "Plugatyrev",
+            "Vladislav",
+            "Capricorn",
+            datetime.strptime("2005-01-12", "%Y-%m-%d").date(),
         )
-        add_person(self.db_path, "Chickodan", "Alexey", "Lion", "2003-08-08")
-        add_person(self.db_path, "Ivanov", "Ivan", "Gemini", "2000-11-30")
+        add_person(
+            self.db_path,
+            "Chickodan",
+            "Alexey",
+            "Lion",
+            datetime.strptime("2003-08-08", "%Y-%m-%d").date(),
+        )
+        add_person(
+            self.db_path,
+            "Ivanov",
+            "Ivan",
+            "Gemini",
+            datetime.strptime("2000-11-30", "%Y-%m-%d").date(),
+        )
 
         people = select_all(self.db_path)
 

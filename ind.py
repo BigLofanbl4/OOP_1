@@ -85,7 +85,7 @@ def add_person(
         INSERT INTO people (surname, name, zodiac_id, birthday)
         VALUES (?, ?, ?, ?)
         """,
-        (surname, name, zodiac_id, birthday),
+        (surname, name, zodiac_id, birthday.strftime("%Y-%m-%d")),
     )
 
     conn.commit()
